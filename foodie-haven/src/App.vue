@@ -9,12 +9,14 @@
       
       <!-- Right Aligned Buttons -->
       <div class="navbar-right">
-        <button @click="addRestaurant" class="add-restaurant-btn">Add Restaurant</button>
+        <button @click="showModal = true" class="add-restaurant-btn">Add Restaurant</button>
         <button class="profile-btn">
           <img src="@/assets/profile.png" alt="User Profile" class="profile-icon" />
         </button>
       </div>
     </nav>
+
+    <AddRestaurant v-if="showModal" @close="showModal = false" @add-restaurant="handleAddRestaurant" />
 
     <!-- Main content for pages -->
     <router-view />
@@ -22,16 +24,33 @@
 </template>
 
 <script>
+import AddRestaurant from "@/components/AddRestaurant.vue";
+
 export default {
   name: "App",
+  components: {
+    AddRestaurant,
+  },
+  data() {
+    return {
+      showModal: false,
+    };
+  },
   methods: {
-    addRestaurant() {
-      // Logic to open the add restaurant form goes here
-      console.log("Add Restaurant button clicked");
+    handleAddRestaurant(restaurantData) {
+      console.log("Restaurant added:", restaurantData);
     },
   },
 };
 </script>
+
+<style>
+body {
+  background-color: #e3ecf1;
+  margin: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+</style>
 
 <style scoped>
 /* Navbar Styles */
