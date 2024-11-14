@@ -22,7 +22,6 @@
       return {
         name: "",
         location: "",
-        videoLink: "",
       };
     },
     methods: {
@@ -33,7 +32,6 @@
         this.$emit("add-restaurant", {
           name: this.name,
           location: this.location,
-          videoLink: this.videoLink,
         });
         this.closeModal();
       },
@@ -61,10 +59,27 @@
     border-radius: 8px;
     width: 300px;
     max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .modal-content h2 {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .modal-content label {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .save-btn {
-    background-color: #4CAF50;
+    background-color: #4f2c1d;
     color: white;
     padding: 10px;
     border: none;
