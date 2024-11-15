@@ -3,18 +3,28 @@
     <nav class="navbar">
       <div class="navbar-logo">
         <img src="@/assets/icon.png" alt="Page Logo" class="logo" />
-        <span class="title">Foodie Haven</span>
+        <span class="title">FoodieLand</span>
       </div>
 
       <div class="navbar-right">
-        <button @click="showModal = true" class="add-restaurant-btn">Add Restaurant</button>
+        <button @click="showModal = true" class="add-restaurant-btn">
+          Add Restaurant
+        </button>
         <button class="profile-btn">
-          <img src="@/assets/profile.png" alt="User Profile" class="profile-icon" />
+          <img
+            src="@/assets/profile.png"
+            alt="User Profile"
+            class="profile-icon"
+          />
         </button>
       </div>
     </nav>
 
-    <AddRestaurant v-if="showModal" @close="showModal = false" @add-restaurant="handleAddRestaurant" />
+    <AddRestaurant
+      v-if="showModal"
+      @close="showModal = false"
+      @add-restaurant="handleAddRestaurant"
+    />
     <router-view />
   </div>
 </template>
@@ -44,7 +54,8 @@ export default {
 body {
   background-color: #e3ecf1;
   margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
 }
 </style>
 
@@ -56,6 +67,11 @@ body {
   padding: 10px 20px;
   background-color: #003865;
   color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .navbar-logo {
@@ -88,6 +104,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
+  font-weight: 700;
+  font-family: "Libre Baskerville", serif;
 }
 
 .add-restaurant-btn:hover {
